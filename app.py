@@ -40,17 +40,16 @@ st.title("SMS Spam Classifier")
 
 input_sms = st.text_input("Enter the Message")
 
+if st.button('Predict'):
+
 #preprocess
-cleaned_message = clean_message(input_sms)
-
+       cleaned_message = clean_message(input_sms)
 #vectorize
-vector_input = tfidf.transform([cleaned_message])
-
+       vector_input = tfidf.transform([cleaned_message])
 #predict
-result = model.predict(vector_input)[0]
-
+       result = model.predict(vector_input)[0]
 #Display
-if result == 1:
-    st.header("Spam")
-else:
-    st.header("Not Spam")
+       if result == 1:
+            st.header("Spam")
+       else:
+            st.header("Not Spam")
